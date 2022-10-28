@@ -17,8 +17,8 @@ void Intruso::set_senha_vazada (string vazou){
     // Salva de acordo com sequência que o usuário digitou em uma string auxiliar
     string senha;
     for (int i = 10 ; i < vazou.size(); i++){
-        senha += entrada[abs(vazou[i] - 65)][0];
-        senha += entrada[abs(vazou[i] - 65)][1];
+        senha += entrada[vazou[i] - 65][0];
+        senha += entrada[vazou[i] - 65][1];
     }
 
     // Adiciona a sequência no vetor
