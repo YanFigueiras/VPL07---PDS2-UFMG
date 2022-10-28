@@ -26,17 +26,26 @@ void Intruso::set_senha_vazada (string vazou){
 }
 
 string Intruso::crack_senha(){
-    // comparador de pares
-    string crack;
-    for(int i=0; i < 12; i=i+2){
-        for(int j=i; j <= i+1; j++){
-            for(int k=i; k <= i+1; k++){
-                if(STRING1[j]==STRING2[k]){
-                    crack += STRING1[j];
-                }
+    // Exclui string iguais
+    list<string>::iterator it1, it2;
+    for (it1 = _sequencia.begin(); it1 != _sequencia.end(); it1++)
+        for (it2 = _sequencia.begin(); it2 != _sequencia.end(); it2++){
+            if (it1 == it2)
+                continue;
+            else if (*it1 == *it2){
+                _sequencia.erase(it2);
+                break;
             }
         }
-    }
+
+    // Compara os pares
+    string crack;
+    for(int i=0; i < 12; i=i+2)
+        for(int j=i; j <= i+1; j++)
+            for(int k=i; k <= i+1; k++)
+                if(_sequencia.front()[j]==_sequencia.back()[k])
+                    crack += _sequencia.front()[j];
+
     return crack;
 }
 
