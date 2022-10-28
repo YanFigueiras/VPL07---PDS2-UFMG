@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <list>
 
 using namespace std;
 
 class Intruso{
     private:
-        vector<string> _sequencia; 
+        list<string> _sequencia; 
 
     public:
         void set_senha_vazada(std::string vazou);
