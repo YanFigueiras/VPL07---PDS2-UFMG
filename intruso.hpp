@@ -9,7 +9,7 @@ using namespace std;
 
 class Intruso{
     private:
-        vector<int[12]> _sequencia;
+        vector<string> _sequencia; 
 
     public:
         void set_senha_vazada(std::string vazou);

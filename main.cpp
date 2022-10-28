@@ -11,9 +11,9 @@ int main(){
 
     for(i=0; i < num_entradas; i++){
         std::getline(std::cin, senha);
-        intruso.set_senha_vazada(senha);
+        intruso.set_senha_vazada(senha); 
     }
-    std::cout << intruso.crack_senha() <<std::endl;
+    std::cout << intruso.crack_senha() <<std::endl; //deixar o crack pra só comparar de duas em duas posições de cada string interno ao vetor
     
     return 0;
 }
