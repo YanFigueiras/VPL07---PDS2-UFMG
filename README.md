@@ -49,5 +49,5 @@
 
 # Como executar:
 
-- Clone o repositório e compile o repositório com o comando `make`
+- Clone o repositório e compile com o comando `make`
 - Após isso basta executar com o comando `./main.out`
