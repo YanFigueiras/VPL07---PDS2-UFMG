@@ -26,7 +26,7 @@ void Intruso::set_senha_vazada (string vazou){
 }
 
 string Intruso::crack_senha(){
-    string crack,crackfinal;
+    
     //Separa cada par de todas as senhas em strings referentes a cada ordem de par
     string pares[6];
     vector<string>::iterator it;
@@ -35,42 +35,24 @@ string Intruso::crack_senha(){
             for (int k = 0; k < 2; k++)
                 pares[i]+=(*it)[j+k];
 
-                    
-                
-                
-    
- /*   // Exclui string iguais
-    list<string>::iterator it1, it2;
-    for (it1 = _sequencia.begin(); it1 != _sequencia.end(); it1++)
-        for (it2 = _sequencia.begin(); it2 != _sequencia.end(); it2++){
-            if (it1 == it2)
-                continue;
-            else if (*it1 == *it2){
-                _sequencia.erase(it2);
-                break;
+    // Enconta o elemento mais repetido dentro de cada string de pares[]
+    // e depois concatena ele a string do resultado final
+    char maisRepetido; 
+    string resultado;
+    for (int i = 0; i < 6; i++){
+        int contador[10] = {0};
+        int valorMaximo = 0; 
+        for (int j = 0; j < pares[i].size(); j++){
+            contador[pares[i][j] - '0']++;
+            if (valorMaximo < contador[pares[i][j] - '0']) {
+                valorMaximo = contador[pares[i][j] - '0'];
+                maisRepetido = pares[i][j];
             }
-        } */
-
-    // Compara os pares
-    /* for(int i=0; i < 12; i=i+2)
-        for(int j=i; j <= i+1; j++)
-            for(int k=i; k <= i+1; k++)
-                if(_sequencia.front()[j]==_sequencia.back()[k]){
-                    crack += _sequencia.front()[j];
-                } */
-            
-    //Espaça a senha
-    int m=0,n=0; 
-     while(m<11 && n<6)
-     {
-        crackfinal[m]=crack[n];
-        crackfinal[m+1]=' ';
-        n++;
-        m=m+2;
-     }
-        
-   
-
-    return crackfinal;
+        }
+        resultado += maisRepetido;
+        resultado += ' ';
+    }
+    
+    return resultado;
 }
 
